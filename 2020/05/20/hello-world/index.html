@@ -39,7 +39,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">青北念</span>
                 </a>
@@ -106,16 +106,16 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/me">
+        <a href="/about">
           
-          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          <i class="far fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
           
           <span>关于我</span>
         </a>
       </li>
       
       <li>
-        <a href="/author">
+        <a href="/about">
           
           <i class="fas fa-user-graduate" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -131,7 +131,7 @@
     
     <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      <i class="fas fa-music" style="zoom: 0.6;"></i>
       
       <span>留言板</span>
     </a>
@@ -156,7 +156,7 @@
       
       <i class="fas fa-list" style="zoom: 0.6;"></i>
       
-      <span>媒体</span>
+      <span>爱好</span>
       <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
     <ul class="sub-nav menus_item_child ">
@@ -213,7 +213,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
         
         <div class="logo-name">青北念</div>
         <div class="logo-desc">
@@ -284,9 +284,9 @@
               
                 <li>
 
-                  <a href="/me " style="margin-left:75px">
+                  <a href="/about " style="margin-left:75px">
 				  
-				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+				   <i class="fa far fa-user-circle" style="position: absolute;left:50px" ></i>
 			      
 		          <span>关于我</span>
                   </a>
@@ -294,7 +294,7 @@
               
                 <li>
 
-                  <a href="/author " style="margin-left:75px">
+                  <a href="/about " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-user-graduate" style="position: absolute;left:50px" ></i>
 			      
@@ -310,7 +310,7 @@
 	  
 		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+			    <i class="fa-fw fas fa-music"></i>
 			
 			留言板
 		</a>
@@ -334,7 +334,7 @@
 			
 				<i class="fa-fw fas fa-list"></i>
 			
-			媒体
+			爱好
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -398,7 +398,7 @@
         </div>
 
         
-        <style>
+            <style>
     .nav-transparent .github-corner {
         display: none !important;
     }
@@ -457,6 +457,7 @@
     </nav>
 
 </header>
+
     
 
 
@@ -1100,7 +1101,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                    type="playlist"
                    id="503838841"
                    fixed='true'
-                   autoplay='true'
+                   autoplay='false'
                    theme='#42b983'
                    loop='all'
                    order='random'
@@ -1147,8 +1148,14 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/qingbeinian" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
     </a>
 
 
@@ -1157,9 +1164,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1754517464" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1754517464" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1167,11 +1172,11 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="https://www.zhihu.com/people/bei-liu-40" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/bei-liu-40" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
     </a>
-
-
 
 </div>
     </div>
@@ -1259,13 +1264,18 @@ $(function () {
             document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
         }
     </script>
+    <!--鼠标移动特效-->
+    <script src="/js/cursor.js"></script>
+    <!--鼠标移动特效-->
     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
     <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
     <script type="text/javascript" src="/js/fireworks.js"></script>
 
+    <!-- 页面点击小红心 -->
+    <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
 
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
