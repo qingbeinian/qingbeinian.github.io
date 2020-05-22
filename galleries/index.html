@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, 青北念">
+    <meta name="keywords" content="相册, 青北念">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签 | 青北念</title>
+    <title>相册 | 青北念</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -451,7 +451,9 @@
     </nav>
 
 </header>
- <div class="bg-cover pd-header about-cover">
+ <link rel="stylesheet" href="/css/gallery.css">
+
+<div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -493,26 +495,48 @@
 </div>
 
 <main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+    <div class="container">
+        
+        
+        <div class="gallery-wrapper row">
+            
+            
+            <div class="col s6 m4 l4 xl3 gallery-box">
+                <a href="./2017" class="gallery-item" data-aos="zoom-in-up">
+                    <div class="gallery-cover-box" style="background-image: url(http://图片地址.com/2017/a.jpg);">
+                    </div>
+                    <p class="gallery-name">
+                        2017
+                    </p>
+                </a>
             </div>
-            <div class="tag-chips">
-                
+            
+            
+            <div class="col s6 m4 l4 xl3 gallery-box">
+                <a href="./2018" class="gallery-item" data-aos="zoom-in-up">
+                    <div class="gallery-cover-box" style="background-image: url(http://图片地址.com/2018/d.jpg);">
+                    </div>
+                    <p class="gallery-name">
+                        2018
+                    </p>
+                </a>
             </div>
+            
+            
+            <div class="col s6 m4 l4 xl3 gallery-box">
+                <a href="./2019" class="gallery-item" data-aos="zoom-in-up">
+                    <div class="gallery-cover-box" style="background-image: url(http://图片地址.com/2019/c.jpg);">
+                    </div>
+                    <p class="gallery-name">
+                        2019
+                    </p>
+                </a>
+            </div>
+            
         </div>
+        
     </div>
-</div>
-
-    
-
-</main>
- <footer class="page-footer bg-color">
+</main> <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
