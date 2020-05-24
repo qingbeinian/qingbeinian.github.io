@@ -458,7 +458,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                你好,我是小六
+                Hi,我是小六
                 
             </div>
 
@@ -484,7 +484,6 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
     $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
 </script>
 
@@ -522,6 +521,33 @@
         </div>
         <div class="card">
             
+            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '930679a0e237336c68dd',
+        clientSecret: '9539be922cc1570d98520c152f4dd6e636eac298',
+        repo: 'qingbeinian.github.gitalk',
+        owner: 'qingbeinian',
+        admin: "qingbeinian",
+        id: '2018-09-30T17-25-30',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+            
 
             
 
@@ -550,15 +576,6 @@
         
         font-size: 15px;
         color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
     }
 
     
@@ -597,7 +614,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177</span>&nbsp;字
+                class="white-color">229</span>&nbsp;字
             
             
             
@@ -620,7 +637,7 @@
             <br>
             
             <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
-                <a href="/null" target="_blank"></a>
+                <a href="" target="_blank"></a>
             </span>
             
         </div>
@@ -680,7 +697,7 @@
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/search.xml", 'searchInput', 'searchResult');
+    searchFunc("search.xml", 'searchInput', 'searchResult');
 });
 </script>
  <!-- 回到顶部按钮 -->
@@ -724,9 +741,6 @@ $(function () {
     count="99" src="/libs/background/canvas-nest.js">
   </script>
     
-  <script type="text/javascript" size="150" alpha="0.6"
-    zIndex="-1" src="/libs/background/ribbon.min.js" async="async"></script>
-   
   <script type="text/javascript" src="/libs/background/ribbon-dynamic.js"
     async="async"></script>
    
