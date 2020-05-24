@@ -34,10 +34,14 @@
 }
 
 body {
-  background: linear-gradient(60deg,
-      rgba(255, 165, 150, 0.5) 5%,
-      rgba(0, 228, 255, 0.35)) 0% 0% / cover,
-    url("https://ae01.alicdn.com/kf/H21b5f6b8496141a1979a33666e1074d9x.jpg") 0px 0px;
+  background: linear-gradient(
+        60deg,
+        rgba(255, 165, 150, 0.5) 5%,
+        rgba(0, 228, 255, 0.35)
+      )
+      0% 0% / cover,
+    url("https://ae01.alicdn.com/kf/H21b5f6b8496141a1979a33666e1074d9x.jpg") 0px
+      0px;
   background-attachment: fixed;
   margin: 0;
   color: #34495e;
@@ -218,13 +222,22 @@ pre[class*="language-"] {
 
 /* 滚动条 */
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(45, 139, 73);
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+  background-color: rgb(130, 204, 152);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.4) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.4) 75%,
+    transparent 75%,
+    transparent
+  );
   border-radius: 3em;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #ffcacaff;
+  background-color: #7dc2ca;
   border-radius: 3em;
 }
 
@@ -232,7 +245,6 @@ pre[class*="language-"] {
   width: 8px;
   height: 15px;
 }
-
 
 /* 键盘 kbd 标签样式 */
 kbd {
@@ -289,7 +301,7 @@ mark {
 }
 
 .bg-color {
-  background-image: linear-gradient(to right, #c16fba 0%, #57b087 100%);
+  background-image: linear-gradient(to right, #ceaeaf 0%, #8ee3f0 100%);
 }
 
 .text-color {
@@ -1334,9 +1346,11 @@ thead {
 
 .chip-container .chip-active {
   color: #fff !important;
-  background: linear-gradient(to bottom right,
-      #ff5e3a 0%,
-      #ff2a68 100%) !important;
+  background: linear-gradient(
+    to bottom right,
+    #ff5e3a 0%,
+    #ff2a68 100%
+  ) !important;
   box-shadow: 2px 5px 10px #aaa !important;
 }
 
@@ -2063,7 +2077,8 @@ footer .copy-right {
 
 /*二级菜单*/
 
-.nav-menu {}
+.nav-menu {
+}
 
 .nav-menu li .sub-nav {
   position: absolute;
@@ -2162,13 +2177,13 @@ footer .copy-right {
 }
 
 .m-nav-show,
-.m-nav-item>a:hover {
+.m-nav-item > a:hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.8);
 }
 
-.m-nav-show>a:before,
-.m-nav-item>a:hover:before {
+.m-nav-show > a:before,
+.m-nav-item > a:hover:before {
   opacity: 1;
 }
 

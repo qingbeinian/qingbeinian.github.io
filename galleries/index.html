@@ -503,7 +503,7 @@
             <div class="col s6 m4 l4 xl3 gallery-box">
                 <a href="./六六的动漫图集" class="gallery-item" data-aos="zoom-in-up">
                     <div class="gallery-cover-box"
-                        style="background-image: url(http://qarouhm6l.bkt.clouddn.com/1.jpg);">
+                        style="background-image: url(http://qarouhm6l.bkt.clouddn.com/a.jpg);">
                     </div>
                     <p class="gallery-name">
                         六六的动漫图集
@@ -778,5 +778,15 @@ $(function () {
   <script type="text/javascript" color="122 103 238" opacity="0.7" zIndex="-2" count="200"
     src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body> -->
+  <script type="text/javascript">
+    var OriginTitile = document.title,
+      st;
+    document.addEventListener("visibilitychange", function () {
+      document.hidden ? (document.title = "ヽ(●-`Д´-)ノ你去哪里啦", clearTimeout(st)) : (document.title = "(Ő∀Ő3)ノ回来啦！",
+        st = setTimeout(function () {
+          document.title = OriginTitile
+        }, 3e3))
+    })
+  </script>
 
 </html>
