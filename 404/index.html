@@ -472,13 +472,7 @@
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/Yafine/cdn@3.2.7/source/medias/banner/' +
-        new Date().getDay() + '.jpg)');
-</script> <footer class="page-footer bg-color">
+</div> <footer class="page-footer bg-color">
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
@@ -698,7 +692,7 @@ $(function () {
     var OriginTitile = document.title,
       st;
     document.addEventListener("visibilitychange", function () {
-      document.hidden ? (document.title = "ヽ(●-`Д´-)ノ你去哪里啦", clearTimeout(st)) : (document.title = "(Ő∀Ő3)ノ回来啦！",
+      document.hidden ? (document.title = "ヽ(●-`Д´-)ノ你去哪里啦", clearTimeout(st)) : (document.title = "(Ő∀Ő3)ノ欢迎回来哦！",
         st = setTimeout(function () {
           document.title = OriginTitile
         }, 3e3))
