@@ -620,7 +620,7 @@
 
         
         <div class="hexo-douban-item">
-    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2603300419.jpg" referrerPolicy="no-referrer" /></div>
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2604517782.jpg" referrerPolicy="no-referrer" /></div>
     <div class="hexo-douban-info">
         <div class="hexo-douban-title">
             <a target="_blank" href="https://movie.douban.com/subject/27186348/">春潮</a>
@@ -1941,9 +1941,9 @@ for (var i = 0; i < firstpages.length; i++) {
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
             type="playlist" id="556530333"
-            fixed='true' autoplay='true'
+            fixed='true' autoplay='false'
             theme='#42b983' loop='all' order='random'
-            preload='auto' volume='0.7'
+            preload='auto' volume='0.5'
             list-folded='false'>
         </meting-js>
     </div>
@@ -1952,17 +1952,17 @@ for (var i = 0; i < firstpages.length; i++) {
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="/about" target="_blank">Qing beinian</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229</span>&nbsp;字
+                class="white-color">232</span>&nbsp;字
             
             
             
@@ -1981,6 +1981,50 @@ for (var i = 0; i < firstpages.length; i++) {
             </span>
             
             <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "21";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
             
             <br>
             
@@ -2035,8 +2079,7 @@ for (var i = 0; i < firstpages.length; i++) {
     <div class="modal-content">
         <div class="search-header">
             <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
         </div>
         <div id="searchResult"></div>
     </div>
@@ -2044,11 +2087,10 @@ for (var i = 0; i < firstpages.length; i++) {
 
 <script src="/js/search.js"></script>
 <script type="text/javascript">
-$(function () {
-    searchFunc("search.xml", 'searchInput', 'searchResult');
-});
-</script>
- <!-- 回到顶部按钮 -->
+    $(function () {
+        searchFunc("search.xml", 'searchInput', 'searchResult');
+    });
+</script> <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
     <a class="btn-floating btn-large waves-effect waves-light" href="#!">
         <i class="fas fa-arrow-up"></i>
