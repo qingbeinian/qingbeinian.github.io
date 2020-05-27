@@ -4,9 +4,61 @@
   
     
     <entry>
+      <title>阿里云部署hexo</title>
+      <link href="/2020/05/27/a-li-yun-bu-shu/"/>
+      <url>/2020/05/27/a-li-yun-bu-shu/</url>
+      
+        <content type="html"><![CDATA[<p>在一番折腾下，终于把博客部署到阿里云。</p><h3 id="1-1安装git以及配置仓库"><a href="#1-1安装git以及配置仓库" class="headerlink" title="1.1安装git以及配置仓库"></a>1.1安装git以及配置仓库</h3><p>安装git以及新建git用户</p><pre><code>yum install gitadduser gitchmod 740 /etc/sudoersvi /etc/sudoers</code></pre><p>在如下位置添加</p><pre><code>git ALL=(ALL) ALL</code></pre><p>vi指令执行之后按i进入输入模式，编辑完成之后按一下esc，然后输入:wq即可退出。<br><img src="http://qarouhm6l.bkt.clouddn.com/1z.png" alt="代码示例"><br>执行以下指令更改文件夹权限</p><pre><code>chmod 400 /etc/sudoerssudo passwd git</code></pre><p>切换git用户并且建立密钥</p><pre><code>su gitcd ~mkdir .sshcd .sshvi authorized_keyschmod 600 ~/.ssh/authorized_keyschmod 700 ~/.ssh</code></pre><p>创建git仓库</p><pre><code>cd ~git init --bare blog.gitvi ~/blog.git/hooks/post-receive</code></pre><p>输入</p><pre><code>git --work-tree=/home/www/website --git-dir=/home/git/blog.git checkout -f</code></pre><p>保存退出</p><pre><code>chmod +x ~/blog.git/hooks/post-receive</code></pre><p>*以上指令都需要在su git 之后执行 如果中途断开重新连接过，需要重新执行 su git指令 进入git账户。</p><p>新建/home/www/website文件夹,在root用户下执行，所限先su root切换为root账户。</p><pre><code>su root输入密码cd /homemkdir wwwcd wwwmkdir website修改文件夹权限 这步很重要 视频中没有提及chmod 777 /home/www/websitechmod 777 /home/www</code></pre><p>在本地电脑输入</p><pre><code>ssh -v git@服务器的公网ip</code></pre><p>返回如下则成功<br><img src="http://qarouhm6l.bkt.clouddn.com/2z.png" alt="代码示例"><br>修改本地配置文件<br><img src="http://qarouhm6l.bkt.clouddn.com/3z.png" alt="代码示例"><br>repo: git@这里改为服务器公网IP:/home/git/blog.git</p><h3 id="2-1配置Nginx"><a href="#2-1配置Nginx" class="headerlink" title="2.1配置Nginx"></a>2.1配置Nginx</h3><pre><code>此时ssh工具断开服务器重新连接，进入Linux账户</code></pre><p>这里选用宝塔面板来一键部署Nginx，Linux面板6.0安装命令(暂时仅兼容Centos7.x，其它系统版本请安装5.9稳定版)：</p><pre><code>yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh</code></pre><p>Linux面板6.0升级专业版</p><pre><code>curl http://download.bt.cn/install/update6.sh|bash</code></pre><p>安装完成后会显示面板后台地址·账号·密码。打开面板后台地址登陆面板，选择Nginx的部署方案，静静等待部署。<br>部署完成，点击网站-添加站点-输入域名(没有域名的输入自己的IP地址)-底部的PHP版本选择”纯静态”(其他不改<br>或者根据自己的习惯来改)-提交。<br>网站创建完成后点击设置-配置文件</p><pre><code>server{    listen 80;    # server_name 填写自己的域名(若没有可不填)    server_name ali6.cn blog.ali6.cn;    index index.php index.html index.htm default.php default.htm default.html;    # 这里root填写自己的网站根目录，修改为/home/www/website    root /home/www/website;</code></pre><p>至此，服务器端的部署已经全部完成</p><p>下面开始测试部署</p><p>本地git执行如下命令</p><pre><code>hexo cleanhexo g -d</code></pre><br><br><br><br><br><h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><blockquote><footer><strong>https://lneverl.gitee.io/posts/2092ec56.html</strong></footer></blockquote><blockquote><footer><strong>https://yq.aliyun.com/articles/702417</strong></footer></blockquote><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 阿里云篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 阿里云 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法</title>
       <link href="/2020/05/26/suan-fa/"/>
       <url>/2020/05/26/suan-fa/</url>
+      
+        <content type="html"><![CDATA[<h5 id="我是六六啊"><a href="#我是六六啊" class="headerlink" title="我是六六啊"></a>我是六六啊</h5><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法类 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 递归 </tag>
+            
+            <tag> DFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>递归</title>
+      <link href="/2020/05/26/di-gui/"/>
+      <url>/2020/05/26/di-gui/</url>
       
         <content type="html"><![CDATA[<h5 id="我是六六啊"><a href="#我是六六啊" class="headerlink" title="我是六六啊"></a>我是六六啊</h5><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       

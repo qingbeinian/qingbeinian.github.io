@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="一起来听歌吧~(ง •_•)ง, 青北念">
+    <meta name="keywords" content="阿里云部署hexo, 青北念">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>一起来听歌吧~(ง •_•)ง | 青北念</title>
+    <title>阿里云部署hexo | 青北念</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -455,12 +455,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">一起来听歌吧~(ง •_•)ง</h1>
+                    <h1 class="description center-align post-title">阿里云部署hexo</h1>
                 </div>
             </div>
         </div>
@@ -581,11 +581,26 @@
             <div class="card-content article-info">
                 <div class="row tag-cate">
                     <div class="col s7">
-                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span> </div>
+                        
+                        <div class="article-tag">
+                            
+                            <a href="/tags/阿里云/">
+                                <span class="chip bg-color">阿里云</span>
+                            </a>
+                            
+                        </div>
                         
                     </div>
                     <div class="col s5 right-align">
+                        
+                        <div class="post-cate">
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/阿里云篇/" class="post-category">
+                                阿里云篇
+                            </a>
+                            
+                        </div>
                         
                     </div>
                 </div>
@@ -594,28 +609,28 @@
                     
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                        2020-05-23
+                        2020-05-27
                     </div>
                     
     
                     
                     <div class="post-date info-break-policy">
                         <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                        2020-05-23
+                        2020-05-27
                     </div>
                     
     
                     
                     <div class="info-break-policy">
                         <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        68
+                        718
                     </div>
                     
     
                     
                     <div class="info-break-policy">
                         <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
     
@@ -630,7 +645,83 @@
             <hr class="clearfix">
             <div class="card-content article-card-content">
                 <div id="articleContent">
-                    <h6 id="热爱电音-纯音-民谣-日漫-沈以诚-❤-的小六"><a href="#热爱电音-纯音-民谣-日漫-沈以诚-❤-的小六" class="headerlink" title="热爱电音 纯音 民谣 日漫 沈以诚 ❤ 的小六"></a>热爱电音 纯音 民谣 日漫 沈以诚 ❤ 的小六</h6><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="520" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1425064974&amp;auto=1&amp;height=66"></iframe>
+                    <p>在一番折腾下，终于把博客部署到阿里云。</p>
+<h3 id="1-1安装git以及配置仓库"><a href="#1-1安装git以及配置仓库" class="headerlink" title="1.1安装git以及配置仓库"></a>1.1安装git以及配置仓库</h3><p>安装git以及新建git用户</p>
+<pre><code>yum install git
+
+adduser git
+
+chmod 740 /etc/sudoers
+
+vi /etc/sudoers</code></pre><p>在如下位置添加</p>
+<pre><code>git ALL=(ALL) ALL</code></pre><p>vi指令执行之后按i进入输入模式，编辑完成之后按一下esc，然后输入:wq即可退出。<br><img src="http://qarouhm6l.bkt.clouddn.com/1z.png" alt="代码示例"><br>执行以下指令更改文件夹权限</p>
+<pre><code>chmod 400 /etc/sudoers
+
+sudo passwd git</code></pre><p>切换git用户并且建立密钥</p>
+<pre><code>su git
+
+cd ~
+
+mkdir .ssh
+
+cd .ssh
+
+vi authorized_keys
+
+chmod 600 ~/.ssh/authorized_keys
+
+chmod 700 ~/.ssh</code></pre><p>创建git仓库</p>
+<pre><code>cd ~
+
+git init --bare blog.git
+
+vi ~/blog.git/hooks/post-receive</code></pre><p>输入</p>
+<pre><code>git --work-tree=/home/www/website --git-dir=/home/git/blog.git checkout -f</code></pre><p>保存退出</p>
+<pre><code>chmod +x ~/blog.git/hooks/post-receive</code></pre><p>*以上指令都需要在su git 之后执行 如果中途断开重新连接过，需要重新执行 su git指令 进入git账户。</p>
+<p>新建/home/www/website文件夹,在root用户下执行，所限先su root切换为root账户。</p>
+<pre><code>su root
+
+输入密码
+
+cd /home
+
+mkdir www
+
+cd www
+
+mkdir website
+
+修改文件夹权限 这步很重要 视频中没有提及
+
+chmod 777 /home/www/website
+
+chmod 777 /home/www</code></pre><p>在本地电脑输入</p>
+<pre><code>ssh -v git@服务器的公网ip</code></pre><p>返回如下则成功<br><img src="http://qarouhm6l.bkt.clouddn.com/2z.png" alt="代码示例"><br>修改本地配置文件<br><img src="http://qarouhm6l.bkt.clouddn.com/3z.png" alt="代码示例"><br>repo: git@这里改为服务器公网IP:/home/git/blog.git</p>
+<h3 id="2-1配置Nginx"><a href="#2-1配置Nginx" class="headerlink" title="2.1配置Nginx"></a>2.1配置Nginx</h3><pre><code>此时ssh工具断开服务器重新连接，进入Linux账户</code></pre><p>这里选用宝塔面板来一键部署Nginx，Linux面板6.0安装命令(暂时仅兼容Centos7.x，其它系统版本请安装5.9稳定版)：</p>
+<pre><code>yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh</code></pre><p>Linux面板6.0升级专业版</p>
+<pre><code>curl http://download.bt.cn/install/update6.sh|bash</code></pre><p>安装完成后会显示面板后台地址·账号·密码。打开面板后台地址登陆面板，选择Nginx的部署方案，静静等待部署。<br>部署完成，点击网站-添加站点-输入域名(没有域名的输入自己的IP地址)-底部的PHP版本选择”纯静态”(其他不改<br>或者根据自己的习惯来改)-提交。<br>网站创建完成后点击设置-配置文件</p>
+<pre><code>server
+{
+    listen 80;
+    # server_name 填写自己的域名(若没有可不填)
+    server_name ali6.cn blog.ali6.cn;
+    index index.php index.html index.htm default.php default.htm default.html;
+    # 这里root填写自己的网站根目录，修改为/home/www/website
+    root /home/www/website;</code></pre><p>至此，服务器端的部署已经全部完成</p>
+<p>下面开始测试部署</p>
+<p>本地git执行如下命令</p>
+<pre><code>hexo clean
+
+hexo g -d</code></pre><br>
+<br>
+<br>
+<br>
+<br>
+
+<h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><blockquote><footer><strong>https://lneverl.gitee.io/posts/2092ec56.html</strong></footer></blockquote>
+<blockquote><footer><strong>https://yq.aliyun.com/articles/702417</strong></footer></blockquote>
+
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -674,7 +765,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https//qingbeinian.github.iomusics/index.html">https//qingbeinian.github.iomusics/index.html</a>
+                    <a href="https//qingbeinian.github.io2020/05/27/a-li-yun-bu-shu/">https//qingbeinian.github.io2020/05/27/a-li-yun-bu-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -711,7 +802,11 @@
                     <div class="post-meta__tag-list" style="display: inline-block;">
                         
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                            <a href="/tags/阿里云/">
+                                <span class="chip bg-color">阿里云</span>
+                            </a>
+                            
                         </div>
                         
                     </div>
@@ -1146,38 +1241,54 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="musics/index.html">
+                <a href="2020/05/27/a-li-yun-bu-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="一起来听歌吧~(ง •_•)ง">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="阿里云部署hexo">
                         
-                        <span class="card-title">一起来听歌吧~(ง •_•)ง</span>
+                        <span class="card-title">阿里云部署hexo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            热爱电音 纯音 民谣 日漫 沈以诚 ❤ 的小六
+                            在一番折腾下，终于把博客部署到阿里云。
+1.1安装git以及配置仓库安装git以及新建git用户
+yum install git
 
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!
+adduser git
+
+chmod 740 /etc/sudoers
+
+vi /etc/sudoers在如
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Qing beinian
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="categories/阿里云篇/" class="post-category">
+                                    阿里云篇
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="tags/阿里云/">
+                        <span class="chip bg-color">阿里云</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1185,41 +1296,52 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="musics/index.html">
+                <a href="2020/05/26/suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="一起来听歌吧~(ง •_•)ง">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="算法">
                         
-                        <span class="card-title">一起来听歌吧~(ง •_•)ง</span>
+                        <span class="card-title">算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            热爱电音 纯音 民谣 日漫 沈以诚 ❤ 的小六
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!
+                            这是你自定义的文章摘要内容，如果这个属性有值，文章 //卡片展示得内容
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Qing beinian
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="categories/算法类/" class="post-category">
+                                    算法类
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="tags/递归/">
+                        <span class="chip bg-color">递归</span>
+                    </a>
+                    
+                    <a href="tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
